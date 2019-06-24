@@ -21,6 +21,7 @@ function add(user) {
 
 function find() {
   return db('users')
+    .select('id', 'username', 'defaultLongitude', 'defaultLatitude')
 }
 
 function findBy(filter) {
@@ -30,6 +31,7 @@ function findBy(filter) {
 function findById(id) {
   return db('users')
     .where("id", id)
+    .select('id', 'username', 'defaultLongitude', 'defaultLatitude')
     .first();
 }
 

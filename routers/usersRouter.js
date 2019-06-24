@@ -45,7 +45,7 @@ router.get('/', requireToken, (req, res) => {
     ))
 })
 
-router.get('/:id', (req, res) => {
+router.get('/:id', requireToken, (req, res) => {
   const id = req.params.id
 
   Users.findById(id)
