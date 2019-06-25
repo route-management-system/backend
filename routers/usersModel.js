@@ -5,6 +5,7 @@ module.exports = {
   find,
   findBy,
   findById,
+  findSavesByUser,
   update,
   remove
 }
@@ -26,6 +27,12 @@ function find() {
 
 function findBy(filter) {
   return db('users').where(filter);
+}
+
+function findSavesByUser(id) {
+  return db('saves')
+    .select('saves.id', 'saves.lat', 'saves.lon', 'saves.address')
+    .where('saves.user_id', id);
 }
 
 function findById(id) {

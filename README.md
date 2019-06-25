@@ -45,3 +45,42 @@ DELETE '/users/:id'
   - deletes a user from the database (selected by user id)
   - requires a valid json token
   - return status 204 if successful
+
+GET '/users/:id/saves'
+  - returns all saved locations associated with user id
+  - requires a valid json token
+  - returns [
+  { "id": integer, "lat": float, "lon": float, "address": string },
+  { "id": integer, "lat": float, "lon": float, "address": string }
+  ]
+  - "id" in return refers to save id
+
+GET '/saves'
+  - returns all saved locations in database
+  - requires a valid json token
+  - returns [
+  { "id": integer, "user_id": integer, "lat": float, "lon": float, "address": string },
+  { "id": integer, "user_id": integer, "lat": float, "lon": float, "address": string }
+  ]
+
+GET '/saves/:id'
+  - gets a saved location by save id
+  - requires a valid json token
+  - returns { "id": integer, "user_id": integer, "lat": float, "lon": float, "address": string }
+
+POST '/saves'
+  - adds a saved location to the database
+  - requires a valid json token
+  - requires { "user_id": integer } matching the id of current user
+  - can include { "lat": float, "lon": float, "address": string } in the body, though it is not necessary
+  - returns back the save from the database
+
+PUT '/saves/:id'
+  - updates a saved location (selected by user id)
+  - requires a valid json token
+  - accepts any of the following in the body: { "user_id": integer, "lat": float, "lon": float, "address": string }
+
+DELETE 'saves/:id'
+  - deletes a saved location from the database (selected by save id)
+  - requires a valid json token
+  - return status 204 if successful
