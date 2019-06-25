@@ -4,6 +4,7 @@ exports.up = function(knex, Promise) {
     tbl.increments();
     tbl
       .integer('user_id')
+      .notNullable()
       .unsigned()
       .references('id')
       .inTable('users')
