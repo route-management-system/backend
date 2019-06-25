@@ -12,7 +12,7 @@ server.use(express.json());
 server.use(cors());
 
 server.use('/users', usersRouter)
-server.use('/saves', usersRouter)
+server.use('/saves', savesRouter)
 
 server.get('/', (req, res) => {
   res.status(200).json({ api: "up" })
