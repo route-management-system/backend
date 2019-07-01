@@ -19,7 +19,7 @@ module.exports = {
     useNullAsDefault: true
   },
 
-  test: {
+  testing: {
     client: 'pg',
     connection:'postgres://localhost/RouteMgmt',
     migrations: {
